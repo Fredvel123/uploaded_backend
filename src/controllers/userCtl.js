@@ -60,7 +60,7 @@ const verifyToken = (req, res, next) => {
           message: 'your token is not valid'
         })
       } else {
-        res.userId = payload.id;
+        req.userId = payload.id;
         next();
       }
     })
@@ -72,10 +72,15 @@ const verifyToken = (req, res, next) => {
   }  
 }
 
+// code to get All info about the user 
+const getInfoUser = async (req, res) => {
+  const user = await Users.findOne({_id: req.userId}).select('-password') ;
+  res.json(user);
+}
 
 // code to test the API.
 const getAllUsers = async (req, res) => {
-  const users = await Users.find();
+  const users = await Users.find(); 
   res.json(users);
 }
 
@@ -83,5 +88,6 @@ module.exports = {
   getAllUsers,
   createNewUser,
   registerUser, 
-  verifyToken
+  verifyToken,
+  getInfoUser
 }
