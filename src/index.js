@@ -14,6 +14,8 @@ require('./database');  // to configure only write "mongod" in another terminal.
 
 // Routers
 
+// users routers API
+app.use('/api/users', require('./routers/userRouters'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

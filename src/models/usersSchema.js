@@ -15,7 +15,7 @@ const userSchema = new Schema({
   }
 }, {
   timestamps: true, 
-  versionKey: true
+  versionKey: false
 })
 
 module.exports = model('users', userSchema);
