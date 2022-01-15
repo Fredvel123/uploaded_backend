@@ -21,8 +21,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port, () => {
-  console.log(`Server is running http://localhost:${port}`)
 app.listen(app.get('port'), () => {
   console.log(`the server is listening on port http://localhost:${app.get('port')}`)
 })
