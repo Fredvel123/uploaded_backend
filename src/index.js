@@ -1,8 +1,9 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const cors =  require('cors');
 // middlewares
 app.use(express.json()); // code to express understand json objects
-
+app.use(cors()); // cors, to avoid problems in the future with the front end.
 // config
 app.set('port', process.env.PORT || 8000);
 
