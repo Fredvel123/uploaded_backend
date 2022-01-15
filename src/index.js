@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors =  require('cors');
+const dotenv = require('dotenv').config();
 
 // middlewares
 app.use(express.json()); // cuz express dosen't understand json objects.
@@ -21,6 +22,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(app.get('port'), () => {
-  console.log(`the server is listening on port http://localhost:${app.get('port')}`)
+app.listen(port, () => {
+  console.log(`Server is running http://localhost:${port}`)
 })
